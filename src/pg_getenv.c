@@ -4,19 +4,12 @@
 #include "funcapi.h"
 #include "access/tupdesc.h"
 
-/*
- * You can include more files here if needed.
- * To use some types, you must include the
- * correct file here based on:
- * http://www.postgresql.org/docs/current/static/xfunc-c.html#XFUNC-C-TYPE-TABLE
- */
-
 PG_MODULE_MAGIC;
 
 PG_FUNCTION_INFO_V1(pg_getenv);
 Datum pg_getenv(PG_FUNCTION_ARGS);
-extern char **environ;
 
+extern char **environ;
 
 Datum
 pg_getenv(PG_FUNCTION_ARGS)
