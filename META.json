@@ -1,0 +1,35 @@
+{
+    "name": "pg_getenv",
+    "abstract": "Get environment variables",
+    "description":"Get environment variables as a result set",
+    "version": "0.0.1",
+    "maintainer": "David Fetter",
+    "license": "MIT",
+    "provides": {
+        "pg_getenv": {
+            "abstract": "A short description",
+            "file": "sql/pg_getenv.sql",
+            "docfile": "doc/pg_getenv.md",
+            "version": "0.0.1"
+        }
+    },
+    "release_status": "unstable",
+    "resources": {
+        "bugtracker": {
+            "web": "http://change.me"
+        },
+        "repository": {
+          "url":  "git://github.com/davidfetter/pg_getenv.git",
+          "web":  "http://github.com/davidfetter/pg_getenv/",
+          "type": "git"
+        }
+    },
+
+    "generated_by": "David Fetter",
+
+
+    "meta-spec": {
+        "version": "1.0.0",
+        "url": "http://pgxn.org/meta/spec.txt"
+    }
+}

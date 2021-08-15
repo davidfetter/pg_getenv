@@ -1,0 +1,9 @@
+\set ECHO none
+-- You should write your tests
+SELECT pg_getenv('test');
+ pg_getenv 
+-----------
+ 
+(1 row)
+
+ROLLBACK;
