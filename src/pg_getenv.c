@@ -25,7 +25,7 @@ pg_getenv(PG_FUNCTION_ARGS)
 	Tuplestorestate	   *tupstore;
 	MemoryContext		oldcontext;
 
-	char		   **env = environ;
+	char			  **env = environ;
 
 	/* Must be superuser because duh */
 	if (!session_auth_is_superuser)
@@ -59,23 +59,24 @@ pg_getenv(PG_FUNCTION_ARGS)
 	MemoryContextSwitchTo(oldcontext);
 
 	/* Get everything out of the environment and into tuples */
-	while (*env)
+	while (*environ)
 	{
 		Datum		values[2];
 		bool		nulls[2];
 		char	   *ptr;
-		char	   *pair = *env;
 		char	   *name, *value;
 
-		name = strtok_r(pair, "=", &ptr);
+		name = strtok_r(*environ, "=", &ptr);
 		value = strtok_r(NULL, "=", &ptr);
-		env++;
+		environ++;
 
 		values[0] = CStringGetTextDatum(name);
 		values[1] = CStringGetTextDatum(value);
 
 		tuplestore_putvalues(tupstore, tupdesc, values, nulls);
 	}
+	/* Reset the pointer */
+	environ = env;
 
 	return (Datum) 0;
 }
