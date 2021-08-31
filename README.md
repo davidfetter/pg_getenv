@@ -37,3 +37,4 @@ Copyright and License
 ---------------------
 
 Copyright (c) 2021 David Fetter.
+MIT license. See [LICENSE](LICENSE) for details.
