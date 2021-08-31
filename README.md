@@ -7,10 +7,27 @@ To build it, you'll need the usual things for developing PostgreSQL extensions.
 
 Once pg_getenv is installed, you can add it to a database.
 
-    CREATE EXTENSION pg_getenv;
+```sql
+CREATE EXTENSION pg_getenv;
+```
 
 This provides one function, `pg_getenv()`, which is executable only by
 database superusers. It returns all the server's environment variables.
+
+You can get all the server's environment variables like this:
+
+```sql
+SELECT name, val
+FROM pg_getenv();
+```
+
+or just a few like this:
+
+```sql
+SELECT name, value
+FROM pg_getenv()
+WHERE name = LOWER(name);
+```
 
 Dependencies
 ------------
